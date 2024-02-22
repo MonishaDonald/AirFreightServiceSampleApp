@@ -16,6 +16,7 @@ namespace AirFreightServiceSampleApp
         {
             int fromOrder = 0;
             int toOrder = 0;
+            Console.WriteLine("User Story #2");
             Console.WriteLine("Schedule Batch Orders");
             Console.Write("From Order Number:");
             fromOrder = Convert.ToInt32(Console.ReadLine());

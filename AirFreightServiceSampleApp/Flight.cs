@@ -21,6 +21,7 @@ namespace AirFreightServiceSampleApp
             {
                 Console.WriteLine("Flight: " + activeFlight.FlightNo + "," + " departure: " + activeFlight.Departure + "," + " arrival: " + activeFlight.Arrival + "," + " day: " + activeFlight.Day);
             }
+            Console.WriteLine("Please Press Enter Key...");
             Console.ReadLine();
         }
     }

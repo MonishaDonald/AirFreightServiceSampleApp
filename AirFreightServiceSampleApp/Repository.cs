@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 
 namespace AirFreightServiceSampleApp
 {
@@ -26,14 +27,19 @@ namespace AirFreightServiceSampleApp
         {
             try
             {
-                using (StreamReader r = new StreamReader("D:\\SampleApps\\AirFreightServiceSampleApp\\AirFreightServiceSampleApp\\coding-assigment-orders.json"))
+                string filePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), @"coding-assigment-orders.json");
+                string json = System.IO.File.ReadAllText(filePath);
+                if (!string.IsNullOrEmpty(json))
                 {
-                    string json = r.ReadToEnd();
                     var ordersList = JsonConvert.DeserializeObject<Dictionary<string, Order>>(json);
                     if (ordersList?.Count > 0)
                         return ordersList;
                     else
                         return null;
+                }
+                else
+                {
+                    return null;
                 }
             }
             catch (Exception ex)
